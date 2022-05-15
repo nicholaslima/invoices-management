@@ -12,8 +12,7 @@ export const theme = extendTheme({
       opacity: "hsla(174, 29%, 47%, 0.2)",
     },
     orange: {
-      darkOrange: "#FE8F04ff",
-      light: "hsla(28, 43%, 45%, 1)",
+      light: "#FE8F04ff",
       opacity: "hsla(28, 43%, 45%, 0.2)",
     },
     gray: "#9799A8ff",

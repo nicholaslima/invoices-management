@@ -11,17 +11,28 @@ import { BsFillSunFill } from "react-icons/bs";
 export function Sidebar() {
   const isWideVersion = useBreakpointValue({
     base: false,
+    md: true,
+    sm: false,
     lg: true,
+  });
+
+  const avatarSize = useBreakpointValue({
+    base: "md",
+    md: "md",
+    sm: "sm",
+    xs: "xs",
   });
 
   return (
     <Box
       display="flex"
-      w={["100%", "6%"]}
-      h={["17%", "100%"]}
+      position="fixed"
+      w={["100%", "100%", "6%"]}
+      h={["14%", "16%", "100%"]}
+      zIndex="10"
       alignItems="space-between"
       justifyContent="space-between"
-      flexDirection={["row", "column"]}
+      flexDirection={["row", "row", "column"]}
       borderRightRadius={isWideVersion ? "20px" : "0"}
       bg="blue.darkMedium"
     >
@@ -31,19 +42,19 @@ export function Sidebar() {
         justifyContent="center"
         bg="purple.light"
         borderRightRadius={["6px", "20px"]}
-        h={["100%", "90px"]}
-        w={["6", "100%"]}
+        h={["100%", "100%", "90px"]}
+        w={["18%", "16%", "100%"]}
       >
-        <Icon as={AiFillPieChart} color="white" fontSize={[10, 40]} />
+        <Icon as={AiFillPieChart} color="white" fontSize={[25, 35, 40]} />
       </Box>
       <Box
         display="flex"
-        flexDirection={["row", "column"]}
-        gap="4"
+        flexDirection={["row", "row", "column"]}
+        gap="7"
         alignItems="center"
         justifyContent="space-around"
       >
-        <Icon as={BsFillSunFill} w={["2", "7"]} color="gray" />
+        <Icon as={BsFillSunFill} w={["3", "7"]} color="gray" />
         <Divider
           orientation={isWideVersion ? "horizontal" : "vertical"}
           borderWidth="1"
@@ -58,11 +69,10 @@ export function Sidebar() {
         >
           <Avatar
             src="https://github.com/nicholaslima.png"
-            w={["5", "10"]}
-            h={["5", "10"]}
+            size={avatarSize}
             name="nicholas lima"
-            mr={["5", "0"]}
-            mb={["0", "5"]}
+            mr={["5", "5", "0"]}
+            mb={["0", "0", "5"]}
           />
         </Box>
       </Box>

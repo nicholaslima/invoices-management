@@ -1,12 +1,24 @@
-import { Flex, Select } from "@chakra-ui/react";
-import { useCallback, useState } from "react";
+import { Flex, Select, useBreakpointValue } from "@chakra-ui/react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 export function SelectStatusInvoices() {
   const [status, setStatus] = useState();
+  const [descriptionSelect, setDescriptionSelect] = useState("");
+
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    md: true,
+  });
 
   const changeStatus = useCallback((a: any) => {
     setStatus(a.target.value);
   }, []);
+
+  useEffect(() => {
+    isWideVersion
+      ? setDescriptionSelect("Filter by Status")
+      : setDescriptionSelect("Filter");
+  }, [isWideVersion]);
 
   return (
     <Select
@@ -14,13 +26,13 @@ export function SelectStatusInvoices() {
       border="0px solid blue.dark"
       outline="0px"
       bg="blue.dark"
-      w="180px"
+      w={["90px", "90px", "180px"]}
       fontWeight="bold"
       iconColor="gray"
       onChange={(a) => changeStatus(a)}
     >
       <option style={{ backgroundColor: "#141625ff" }} value="">
-        Filter by Status
+        {descriptionSelect}
       </option>
       <option style={{ backgroundColor: "#141625ff" }} value="paid">
         paid

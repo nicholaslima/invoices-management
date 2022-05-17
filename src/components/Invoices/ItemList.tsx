@@ -51,29 +51,51 @@ export function ItemList({ status, data }: ItemlistProps) {
       borderRadius="10px"
       p="3"
     >
-      <Text color="white">#{data.id}</Text>
-      <Text color="gray">{data.date}</Text>
-      <Text color="gray">{data.nameCustomer}</Text>
-      <Text color="white">$ {data.value}</Text>
-      <Box
-        display="flex"
-        alignItems="center"
-        color={statusColor.color}
-        borderRadius="5px"
-        fontWeight="bold"
-        bg={statusColor.background}
-        px="3"
-        py="1"
+      <Flex
+        flexDirection={["column", "column", "row"]}
+        w="100%"
+        justifyContent="space-around"
       >
-        <Icon
-          as={GoPrimitiveDot}
+        <Text color="white" mb={["4", "4", "0"]}>
+          #{data.id}
+        </Text>
+        <Text color="gray">{data.date}</Text>
+        <Text color="gray">{data.nameCustomer}</Text>
+      </Flex>
+
+      <Flex
+        flexDirection={["column", "column", "row"]}
+        w="100%"
+        alignItems="center"
+        justifyContent="space-around"
+      >
+        <Text color="white" fontWeight="bold" mb={["2", "2", "0"]}>
+          $ {data.value}
+        </Text>
+        <Box
+          display="flex"
+          alignItems="center"
           color={statusColor.color}
-          fontSize="20"
-          mr="2"
-        />
-        {status}
-      </Box>
-      <Icon as={IoIosArrowForward} color="gray"></Icon>
+          borderRadius="5px"
+          fontWeight="bold"
+          bg={statusColor.background}
+          px="3"
+          py="1"
+        >
+          <Icon
+            as={GoPrimitiveDot}
+            color={statusColor.color}
+            fontSize="20"
+            mr="2"
+          />
+          {status}
+        </Box>
+        <Icon
+          display={["none", "none", "block"]}
+          as={IoIosArrowForward}
+          color="gray"
+        ></Icon>
+      </Flex>
     </Flex>
   );
 }

@@ -1,14 +1,45 @@
-import { Box, Button, Flex, Heading, Select, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Heading,
+  Text,
+  useBreakpointValue,
+} from "@chakra-ui/react";
+import { useEffect, useMemo, useState } from "react";
 import { AiFillPlusCircle } from "react-icons/ai";
-import { Invoices } from ".";
 import { SelectStatusInvoices } from "./SelectStatusInvoices";
 
 export function Header() {
+  const [buttonTitle, setButtonTitle] = useState("");
+  const [title, setTitle] = useState("");
+
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    md: true,
+  });
+
+  useEffect(() => {
+    switch (isWideVersion) {
+      case true:
+        setButtonTitle("New Invoice");
+        setTitle("there are 7 total invoices");
+        break;
+      case false:
+        setButtonTitle("Invoice");
+        setTitle("7 invoices");
+        break;
+      default:
+        setButtonTitle("New Invoice");
+        setTitle("there are 7 total invoices");
+    }
+  }, [isWideVersion]);
+
   return (
     <Flex
       flexDirection="row"
       alignItems="center"
-      justifyContent="space-between"
+      justifyContent={["space-around", "space-between"]}
       w="100%"
     >
       <Box>
@@ -16,7 +47,7 @@ export function Header() {
           Invoices
         </Heading>
         <Text color="gray" fontWeight="500">
-          there are 7 total invoices
+          {title}
         </Text>
       </Box>
 
@@ -28,10 +59,11 @@ export function Header() {
           color="white"
           size="md"
           pl="2px"
+          mr="2"
           bg="purple.light"
           leftIcon={<AiFillPlusCircle size={40} />}
         >
-          New Invoice
+          {buttonTitle}
         </Button>
       </Flex>
     </Flex>

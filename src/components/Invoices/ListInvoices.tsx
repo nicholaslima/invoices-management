@@ -3,7 +3,7 @@ import { ItemList } from "./ItemList";
 
 export function ListInvoices() {
   return (
-    <VStack spacing="3" mt="20">
+    <VStack spacing="3" mt={["7", "7", "20"]}>
       <ItemList
         status="paid"
         data={{

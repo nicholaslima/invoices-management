@@ -29,7 +29,7 @@ export function Header() {
         setTitle("there are 7 total invoices");
         break;
       case false:
-        setButtonTitle("Invoice");
+        setButtonTitle("New");
         setTitle("7 invoices");
         break;
       default:
@@ -57,7 +57,7 @@ export function Header() {
       <Flex alignItems="center" gap="4">
         <SelectStatusInvoices />
         <NextLink href="/NewInvoice" passHref>
-          <Link>
+          <Link text-decoration="none">
             <Button
               display="flex"
               borderRadius="35"
@@ -65,7 +65,7 @@ export function Header() {
               size="md"
               pl="2px"
               mr="2"
-              bg="purple.light"
+              bg="purple.dark"
               leftIcon={<AiFillPlusCircle size={40} />}
             >
               {buttonTitle}

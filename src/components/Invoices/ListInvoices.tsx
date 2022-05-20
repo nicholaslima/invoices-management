@@ -9,7 +9,7 @@ export function ListInvoices() {
         data={{
           nameCustomer: "marco",
           date: "15 de set 2020",
-          id: "dfdfg",
+          id: "RT3080",
           value: "1800",
         }}
       />

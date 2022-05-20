@@ -26,9 +26,9 @@ export function SelectStatusInvoices() {
       border="0px solid blue.dark"
       outline="0px"
       bg="blue.600"
-      w={["90px", "90px", "180px"]}
+      w={["90px", "110px", "180px"]}
       fontWeight="bold"
-      iconColor="gray"
+      iconColor="purple.dark"
       onChange={(a) => changeStatus(a)}
     >
       <option style={{ backgroundColor: "#141625ff" }} value="">

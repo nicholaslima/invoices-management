@@ -25,15 +25,29 @@ export const theme = extendTheme({
       dark: "#7B5CF5ff",
       light: "#9278FFff",
     },
+    mirage: "#1e2139",
+    ebony: "#252945",
+    selago: "#dfe3fa",
+    baliHai: "#888eb0",
+    shipCove: "#7e88c3",
+    vulcan: "#0c0e16",
+    burntSienna: "#ec5757",
+    monaLisa: "#ff9797",
+    whisper: "#f8f8fb",
+    offWhite: "#f9fafe",
+    mirage2: "#141625",
+    darkAccent: "#494e6e",
+    otherDark: "#373b53",
   },
   styles: {
     global: {
       body: {
         bg: "blue.600",
+        fontSize: "0.8rem",
       },
     },
   },
   fonts: {
-    body: "Poppins",
+    body: "Spartan",
   },
 });

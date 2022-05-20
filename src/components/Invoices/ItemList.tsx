@@ -1,4 +1,4 @@
-import { Box, Flex, Icon, Text } from "@chakra-ui/react";
+import { Box, Flex, Icon, Text, useBreakpointValue } from "@chakra-ui/react";
 import { useMemo } from "react";
 import { GoPrimitiveDot } from "react-icons/go";
 import { IoIosArrowForward } from "react-icons/io";
@@ -16,6 +16,10 @@ interface ItemlistProps {
 }
 
 export function ItemList({ status, data }: ItemlistProps) {
+  const mdScreen = useBreakpointValue({
+    md: true,
+  });
+
   const statusColor = useMemo(() => {
     let color;
     let background;
@@ -44,43 +48,74 @@ export function ItemList({ status, data }: ItemlistProps) {
   }, []);
   return (
     <Flex
-      justify="space-around"
+      justify="space-between"
       align="center"
       w="100%"
       bg="blue.700"
-      borderRadius="10px"
-      p="3"
+      _hover={{ borderColor: "purple.dark" }}
+      borderRadius="7px"
+      borderWidth="1px"
+      transition="0.3s"
+      borderColor="blue.700"
+      px="4"
+      py="7"
     >
       <Flex
         flexDirection={["column", "column", "row"]}
-        w="100%"
         justifyContent="space-around"
+        w="50%"
       >
-        <Text color="white" mb={["4", "4", "0"]}>
-          #{data.id}
+        <Text color="white" fontWeight="bold" mb={["4", "4", "0"]}>
+          <Box as="span" color="purple.light">
+            #
+          </Box>
+          {data.id}
         </Text>
-        <Text color="gray">{data.date}</Text>
-        <Text color="gray">{data.nameCustomer}</Text>
+        <Text color="white">{data.date}</Text>
+        {mdScreen && (
+          <Text color="white" w="30%" textAlign="center">
+            {data.nameCustomer}
+          </Text>
+        )}
+        {!mdScreen && (
+          <Text color="white" fontWeight="bold" fontSize="1.1rem" mt="2">
+            $ {data.value}
+          </Text>
+        )}
       </Flex>
 
       <Flex
         flexDirection={["column", "column", "row"]}
-        w="100%"
-        alignItems="center"
-        justifyContent="space-around"
+        w="40%"
+        justifyContent={["space-around", "space-between"]}
+        h="100%"
       >
-        <Text color="white" fontWeight="bold" mb={["2", "2", "0"]}>
-          $ {data.value}
-        </Text>
+        {mdScreen && (
+          <Text
+            color="white"
+            fontWeight="bold"
+            mb={["2", "2", "0"]}
+            fontSize="1.1rem"
+          >
+            $ {data.value}
+          </Text>
+        )}
+        {!mdScreen && (
+          <Text color="white" w="100%" textAlign="right" mb={["2", "7", "0"]}>
+            {data.nameCustomer}
+          </Text>
+        )}
         <Box
           display="flex"
           alignItems="center"
+          justifyContent="center"
+          alignSelf="flex-end"
           color={statusColor.color}
           borderRadius="5px"
           fontWeight="bold"
           bg={statusColor.background}
-          px="3"
-          py="1"
+          py="2"
+          w="110px"
         >
           <Icon
             as={GoPrimitiveDot}
@@ -93,7 +128,7 @@ export function ItemList({ status, data }: ItemlistProps) {
         <Icon
           display={["none", "none", "block"]}
           as={IoIosArrowForward}
-          color="gray"
+          color="purple.dark"
         ></Icon>
       </Flex>
     </Flex>

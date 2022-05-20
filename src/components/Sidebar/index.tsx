@@ -5,16 +5,30 @@ import {
   Icon,
   useBreakpointValue,
 } from "@chakra-ui/react";
+import { useEffect, useMemo, useState } from "react";
 import { AiFillPieChart } from "react-icons/ai";
 import { BsFillSunFill } from "react-icons/bs";
 
 export function Sidebar() {
-  const isWideVersion = useBreakpointValue({
+  const [isWideVersion, setWideVersion] = useState(true);
+  const WideVersion = useBreakpointValue({
     base: false,
     md: true,
     sm: false,
     lg: true,
   });
+
+  useEffect(() => {
+    let version;
+
+    if (WideVersion === undefined) {
+      version = true;
+    } else {
+      version = WideVersion;
+    }
+
+    setWideVersion(version);
+  }, [WideVersion]);
 
   const avatarSize = useBreakpointValue({
     base: "md",
@@ -34,7 +48,7 @@ export function Sidebar() {
       justifyContent="space-between"
       flexDirection={["row", "row", "column"]}
       borderRightRadius={isWideVersion ? "20px" : "0"}
-      bg="blue.darkMedium"
+      bg="blue.700"
     >
       <Box
         display="flex"

@@ -47,7 +47,7 @@ export function ItemList({ status, data }: ItemlistProps) {
       justify="space-around"
       align="center"
       w="100%"
-      bg="blue.darkMedium"
+      bg="blue.700"
       borderRadius="10px"
       p="3"
     >

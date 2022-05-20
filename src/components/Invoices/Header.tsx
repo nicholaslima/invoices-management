@@ -4,8 +4,11 @@ import {
   Flex,
   Heading,
   Text,
+  Link,
   useBreakpointValue,
 } from "@chakra-ui/react";
+
+import NextLink from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { AiFillPlusCircle } from "react-icons/ai";
 import { SelectStatusInvoices } from "./SelectStatusInvoices";
@@ -53,18 +56,22 @@ export function Header() {
 
       <Flex alignItems="center" gap="4">
         <SelectStatusInvoices />
-        <Button
-          display="flex"
-          borderRadius="35"
-          color="white"
-          size="md"
-          pl="2px"
-          mr="2"
-          bg="purple.light"
-          leftIcon={<AiFillPlusCircle size={40} />}
-        >
-          {buttonTitle}
-        </Button>
+        <NextLink href="/NewInvoice" passHref>
+          <Link>
+            <Button
+              display="flex"
+              borderRadius="35"
+              color="white"
+              size="md"
+              pl="2px"
+              mr="2"
+              bg="purple.light"
+              leftIcon={<AiFillPlusCircle size={40} />}
+            >
+              {buttonTitle}
+            </Button>
+          </Link>
+        </NextLink>
       </Flex>
     </Flex>
   );

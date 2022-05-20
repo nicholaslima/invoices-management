@@ -25,7 +25,7 @@ export function SelectStatusInvoices() {
       color="white"
       border="0px solid blue.dark"
       outline="0px"
-      bg="blue.dark"
+      bg="blue.600"
       w={["90px", "90px", "180px"]}
       fontWeight="bold"
       iconColor="gray"

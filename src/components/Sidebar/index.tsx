@@ -41,9 +41,9 @@ export function Sidebar() {
     <Box
       display="flex"
       position="fixed"
-      w={["100%", "100%", "6%"]}
-      h={["14%", "16%", "100%"]}
-      zIndex="10"
+      w={["100%", "100%", "70px"]}
+      h={["70px", "70px", "100%"]}
+      zIndex="2"
       alignItems="space-between"
       justifyContent="space-between"
       flexDirection={["row", "row", "column"]}

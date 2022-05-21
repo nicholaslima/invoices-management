@@ -1,5 +1,5 @@
 import { Box, Flex, Icon, Text, useBreakpointValue } from "@chakra-ui/react";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { GoPrimitiveDot } from "react-icons/go";
 import { IoIosArrowForward } from "react-icons/io";
 
@@ -16,9 +16,15 @@ interface ItemlistProps {
 }
 
 export function ItemList({ status, data }: ItemlistProps) {
-  const mdScreen = useBreakpointValue({
+  const [mdScreen, setMdScreen] = useState(false);
+
+  const wideVersion = useBreakpointValue({
     md: true,
   });
+
+  useEffect(() => {
+    wideVersion ? setMdScreen(true) : setMdScreen(false);
+  }, [wideVersion]);
 
   const statusColor = useMemo(() => {
     let color;
@@ -46,6 +52,7 @@ export function ItemList({ status, data }: ItemlistProps) {
       color,
     };
   }, []);
+  console.log(mdScreen);
   return (
     <Flex
       justify="space-between"
@@ -88,6 +95,7 @@ export function ItemList({ status, data }: ItemlistProps) {
         flexDirection={["column", "column", "row"]}
         w="40%"
         justifyContent={["space-around", "space-between"]}
+        alignItems="center"
         h="100%"
       >
         {mdScreen && (

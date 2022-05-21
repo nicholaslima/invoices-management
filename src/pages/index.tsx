@@ -3,13 +3,17 @@ import { Avatar, Flex } from "@chakra-ui/react";
 
 import { Sidebar } from "../components/Sidebar";
 import { Invoices } from "../components/Invoices";
+import { NewInvoice } from "../pages/NewInvoice";
 
 const Home: NextPage = () => {
   return (
-    <Flex flexDirection={["column", "row"]} h="100vh">
-      <Sidebar />
-      <Invoices />
-    </Flex>
+    <>
+      <NewInvoice />
+      <Flex flexDirection={["column", "row"]}>
+        <Sidebar />
+        <Invoices />
+      </Flex>
+    </>
   );
 };
 

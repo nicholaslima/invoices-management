@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   Flex,
   Heading,
   Text,
@@ -9,8 +8,9 @@ import {
 } from "@chakra-ui/react";
 
 import NextLink from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { AiFillPlusCircle } from "react-icons/ai";
+import { ButtonElement } from "../Button";
 import { SelectStatusInvoices } from "./SelectStatusInvoices";
 
 export function Header() {
@@ -57,19 +57,15 @@ export function Header() {
       <Flex alignItems="center" gap="4">
         <SelectStatusInvoices />
         <NextLink href="/NewInvoice" passHref>
-          <Link text-decoration="none">
-            <Button
-              display="flex"
-              borderRadius="35"
-              color="white"
-              size="md"
+          <Link>
+            <ButtonElement
               pl="2px"
               mr="2"
               bg="purple.dark"
               leftIcon={<AiFillPlusCircle size={40} />}
             >
               {buttonTitle}
-            </Button>
+            </ButtonElement>
           </Link>
         </NextLink>
       </Flex>

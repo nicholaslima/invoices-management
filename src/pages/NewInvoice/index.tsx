@@ -23,397 +23,172 @@ import {
 import { Sidebar } from "../../components/Sidebar";
 
 import { FaTrash } from "react-icons/fa";
+import { InputElement } from "../../components/Form/InputElement";
+import { InputLabel } from "../../components/Form/InputLabel";
+import { SelectElement } from "../../components/Form/SelectElement";
+import { ButtonElement } from "../../components/Button";
+import { ListItens } from "../../components/ListItens";
 
-export default function NewInvoice() {
+export function NewInvoice() {
   return (
-    <Flex flexDirection={["column", "row"]} h="100%">
-      <Sidebar></Sidebar>
-      <Box w="100%" maxW="800px" h="100%" mx="auto" p="16" bg="blue.800">
-        <Heading color="white" mb="12">
-          New Invoice
-        </Heading>
-        <FormControl>
-          <Box mb="6">
-            <FormLabel htmlFor="client-name" color="gray" fontWeight="bold">
-              Client`s Name
-            </FormLabel>
-            <Input
-              id="client-name"
-              type="text"
-              fontWeight="bold"
-              borderColor="blue.700"
-              bg="blue.700"
-              color="white"
-              fontSize="16"
-              borderWidth="2px"
-              py="7"
-              borderRadius="8px"
-            />
+    <Box
+      w="100%"
+      position="fixed"
+      left={["0px", "0px", "70", "70px"]}
+      top={["70px", "70", "0", "0"]}
+      overflowY="scroll"
+      zIndex="1"
+      h="100%"
+      maxW="500px"
+      mx="auto"
+      p="1.5rem"
+      bg="blue.800"
+    >
+      <Heading
+        fontFamily="Spartan"
+        fontSize="1.5rem"
+        fontWeight="700"
+        color="white"
+        mb="5"
+      >
+        New Invoice
+      </Heading>
+      <Heading
+        fontFamily="Spartan"
+        fontSize="0.7rem"
+        fontWeight="700"
+        color="purple.dark"
+        mb="1.5rem"
+      >
+        Bill From
+      </Heading>
+
+      <Box mb="0.75rem">
+        <InputLabel htmlFor="address">Street Address</InputLabel>
+        <InputElement type="text" id="address" />
+      </Box>
+
+      <HStack spacing="2" mb="8">
+        <Box>
+          <InputLabel htmlFor="city">City</InputLabel>
+          <InputElement type="text" id="city" />
+        </Box>
+
+        <Box>
+          <InputLabel htmlFor="code">Post Code</InputLabel>
+          <InputElement type="text" id="code" />
+        </Box>
+
+        <Box>
+          <InputLabel htmlFor="country">Country</InputLabel>
+          <InputElement type="text" id="country" />
+        </Box>
+      </HStack>
+
+      <Heading
+        fontFamily="Spartan"
+        fontSize="0.7rem"
+        fontWeight="700"
+        color="purple.dark"
+        mb="1.5rem"
+      >
+        Bill To
+      </Heading>
+      <FormControl>
+        <Box mb="0.75rem">
+          <InputLabel htmlFor="name">Client`s Name</InputLabel>
+          <InputElement type="text" id="name" />
+        </Box>
+
+        <Box mb="0.75rem">
+          <InputLabel htmlFor="email">Client`s Email</InputLabel>
+          <InputElement type="email" id="email" />
+        </Box>
+
+        <Box mb="0.75rem">
+          <InputLabel htmlFor="addr">Street address</InputLabel>
+          <InputElement type="text" id="addr" />
+        </Box>
+
+        <HStack spacing="2" mb="8">
+          <Box>
+            <InputLabel htmlFor="cit">City</InputLabel>
+            <InputElement type="text" id="cit" />
           </Box>
-
-          <Box mb="6">
-            <FormLabel htmlFor="client-name" color="gray" fontWeight="bold">
-              Client`s Email
-            </FormLabel>
-            <Input
-              id="client-name"
-              type="email"
-              fontWeight="bold"
-              borderColor="blue.700"
-              bg="blue.700"
-              color="white"
-              fontSize="16"
-              borderWidth="2px"
-              py="7"
-              borderRadius="8px"
-            />
-          </Box>
-
-          <Box mb="6">
-            <FormLabel htmlFor="client-name" color="gray" fontWeight="bold">
-              Street address
-            </FormLabel>
-            <Input
-              id="client-name"
-              type="text"
-              borderColor="blue.700"
-              bg="blue.700"
-              color="white"
-              fontWeight="bold"
-              fontSize="16"
-              borderWidth="2px"
-              py="7"
-              borderRadius="8px"
-            />
-          </Box>
-
-          <HStack spacing="8" mb="8">
-            <Box>
-              <FormLabel htmlFor="client-name" color="gray" fontWeight="bold">
-                City
-              </FormLabel>
-              <Input
-                id="client-name"
-                type="text"
-                borderColor="blue.700"
-                bg="blue.700"
-                color="white"
-                fontWeight="bold"
-                fontSize="16"
-                borderWidth="2px"
-                py="7"
-                borderRadius="8px"
-              />
-            </Box>
-
-            <Box>
-              <FormLabel htmlFor="client-name" color="gray" fontWeight="bold">
-                Post Code
-              </FormLabel>
-              <Input
-                id="client-name"
-                type="text"
-                borderColor="blue.700"
-                bg="blue.700"
-                color="white"
-                fontWeight="bold"
-                fontSize="16"
-                borderWidth="2px"
-                py="7"
-                borderRadius="8px"
-              />
-            </Box>
-
-            <Box>
-              <FormLabel htmlFor="client-name" color="gray" fontWeight="bold">
-                Country
-              </FormLabel>
-              <Input
-                id="client-name"
-                type="text"
-                borderColor="blue.700"
-                bg="blue.700"
-                color="white"
-                fontWeight="bold"
-                fontSize="16"
-                borderWidth="2px"
-                py="7"
-                borderRadius="8px"
-              />
-            </Box>
-          </HStack>
-
-          <HStack spacing="8" mb="8">
-            <Box>
-              <FormLabel htmlFor="client-name" color="gray" fontWeight="bold">
-                Invoice Date
-              </FormLabel>
-              <Input
-                id="client-name"
-                type="text"
-                borderColor="blue.700"
-                bg="blue.700"
-                color="white"
-                fontWeight="bold"
-                fontSize="16"
-                borderWidth="2px"
-                py="7"
-                borderRadius="8px"
-              />
-            </Box>
-
-            <Box>
-              <FormLabel htmlFor="client-name" color="gray" fontWeight="bold">
-                Payment Terms
-              </FormLabel>
-              <Input
-                id="client-name"
-                type="text"
-                borderColor="blue.700"
-                bg="blue.700"
-                color="white"
-                fontWeight="bold"
-                fontSize="16"
-                borderWidth="2px"
-                py="7"
-                borderRadius="8px"
-              />
-            </Box>
-          </HStack>
 
           <Box>
-            <FormLabel htmlFor="client-name" color="gray" fontWeight="bold">
-              Project description
-            </FormLabel>
-            <Input
-              id="client-name"
-              type="text"
-              borderColor="blue.700"
-              bg="blue.700"
-              color="white"
-              fontWeight="bold"
-              fontSize="16"
-              borderWidth="2px"
-              py="7"
-              borderRadius="8px"
-            />
+            <InputLabel htmlFor="cod">Post Code</InputLabel>
+            <InputElement type="text" id="cod" />
           </Box>
 
-          <Heading color="gray" fontWeight="bold" mt="10" mb="6">
-            Item List
-          </Heading>
+          <Box>
+            <InputLabel htmlFor="countr">Country</InputLabel>
+            <InputElement type="text" id="countr" />
+          </Box>
+        </HStack>
 
-          <Table colorScheme="whiteAlpha" size="sm">
-            <Thead>
-              <Tr>
-                <Th
-                  color="gray"
-                  p="0"
-                  fontSize="1rem"
-                  textTransform="capitalize"
-                  fontWeight="bold"
-                  border="0"
-                >
-                  Item Name
-                </Th>
-                <Th
-                  color="gray"
-                  p="0"
-                  border="0"
-                  fontSize="1rem"
-                  fontWeight="bold"
-                  textTransform="capitalize"
-                >
-                  Qtd
-                </Th>
-                <Th
-                  color="gray"
-                  p="0"
-                  border="0"
-                  fontSize="1rem"
-                  fontWeight="bold"
-                  textTransform="capitalize"
-                >
-                  Price
-                </Th>
-                <Th
-                  color="gray"
-                  p="0"
-                  border="0"
-                  fontWeight="bold"
-                  fontSize="1rem"
-                  textTransform="capitalize"
-                >
-                  Total
-                </Th>
-                <Th border="0" />
-              </Tr>
-            </Thead>
+        <HStack spacing="2" mb="8">
+          <Box>
+            <InputLabel htmlFor="date">Invoice Date</InputLabel>
+            <InputElement type="date" id="date" />
+          </Box>
 
-            <Tbody>
-              <Tr>
-                <Td pl="0" pr="5" w="40%" border="0">
-                  <Input
-                    id="client-name"
-                    type="text"
-                    borderColor="blue.700"
-                    bg="blue.700"
-                    color="white"
-                    fontWeight="bold"
-                    fontSize="16"
-                    borderWidth="2px"
-                    py="7"
-                    borderRadius="5px"
-                  />
-                </Td>
-
-                <Td pl="0" pr="5" w="13%" border="0" my="0">
-                  <Input
-                    id="client-name"
-                    type="text"
-                    borderColor="blue.700"
-                    bg="blue.700"
-                    color="white"
-                    fontWeight="bold"
-                    fontSize="16"
-                    borderWidth="2px"
-                    py="7"
-                    borderRadius="5px"
-                  />
-                </Td>
-
-                <Td pl="0" pr="5" w="20%" border="0">
-                  <Input
-                    id="client-name"
-                    type="text"
-                    borderColor="blue.700"
-                    bg="blue.700"
-                    color="white"
-                    fontWeight="bold"
-                    fontSize="16"
-                    borderWidth="2px"
-                    py="7"
-                    borderRadius="5px"
-                  />
-                </Td>
-
-                <Td
-                  color="white"
-                  pl="0"
-                  w="20%"
-                  pr="5"
-                  fontWeight="bold"
-                  border="0"
-                >
-                  156.45
-                </Td>
-
-                <Td pl="0" pr="5" border="0">
-                  <Icon as={FaTrash} color="gray" fontSize="22" />
-                </Td>
-              </Tr>
-
-              <Tr>
-                <Td pl="0" pr="5" w="40%" border="0">
-                  <Input
-                    id="client-name"
-                    type="text"
-                    borderColor="blue.700"
-                    bg="blue.700"
-                    color="white"
-                    fontWeight="bold"
-                    fontSize="16"
-                    borderWidth="2px"
-                    py="7"
-                    borderRadius="5px"
-                  />
-                </Td>
-
-                <Td pl="0" pr="5" w="13%" border="0" my="0">
-                  <Input
-                    id="client-name"
-                    type="text"
-                    borderColor="blue.700"
-                    bg="blue.700"
-                    color="white"
-                    fontWeight="bold"
-                    fontSize="16"
-                    borderWidth="2px"
-                    py="7"
-                    borderRadius="5px"
-                  />
-                </Td>
-
-                <Td pl="0" pr="5" w="20%" border="0">
-                  <Input
-                    id="client-name"
-                    type="text"
-                    borderColor="blue.700"
-                    bg="blue.700"
-                    color="white"
-                    fontWeight="bold"
-                    fontSize="16"
-                    borderWidth="2px"
-                    py="7"
-                    borderRadius="5px"
-                  />
-                </Td>
-
-                <Td
-                  color="white"
-                  pl="0"
-                  w="20%"
-                  pr="5"
-                  fontWeight="bold"
-                  border="0"
-                >
-                  156.45
-                </Td>
-
-                <Td pl="0" pr="5" border="0">
-                  <Icon as={FaTrash} color="gray" fontSize="22" />
-                </Td>
-              </Tr>
-            </Tbody>
-          </Table>
-
-          <Button
-            bg="blue.700"
-            borderRadius="20px"
-            mt="8"
-            w="100%"
-            py="6"
-            color="white"
-            fontWeight="bold"
-            mb="10"
-          >
-            + Add new Item
-          </Button>
-
-          <HStack float="right" spacing="2" mb="10">
-            <Button
-              bg="blue.700"
-              borderRadius="25px"
-              py="6"
-              px="8"
+          <Box w="100%">
+            <InputLabel htmlFor="payment">Payment terms</InputLabel>
+            <SelectElement
+              borderColor="ebony"
+              bg="mirage"
               color="white"
-              fontWeight="bold"
-            >
-              Cancel
-            </Button>
-            <Button
-              bg="purple.light"
-              borderRadius="25px"
-              py="6"
-              px="8"
-              color="white"
-              fontWeight="bold"
-            >
-              Save Changes
-            </Button>
-          </HStack>
-        </FormControl>
-      </Box>
-    </Flex>
+              fontSize="0.75rem"
+              borderWidth="2px"
+              h="3rem"
+              borderRadius="0.25rem"
+              options={[
+                "Net day 1",
+                "Net days 7",
+                "Net days 14",
+                "Net days 30",
+              ]}
+            />
+          </Box>
+        </HStack>
+
+        <Box mb="0.75rem">
+          <InputLabel htmlFor="desc">Project description</InputLabel>
+          <InputElement type="text" id="desc" />
+        </Box>
+
+        <Heading
+          color="gray"
+          fontSize="1.125rem"
+          fontWeight="700"
+          mt="10"
+          mb="6"
+        >
+          Item List
+        </Heading>
+
+        <ListItens />
+
+        <ButtonElement
+          bg="otherDark"
+          mt="8"
+          w="100%"
+          mb="10"
+          _hover={{ bg: "darkAccent" }}
+        >
+          + Add new Item
+        </ButtonElement>
+
+        <HStack float="right" spacing="2" mb="10">
+          <ButtonElement bg="otherDark" _hover={{ bg: "darkAccent" }}>
+            Cancel
+          </ButtonElement>
+          <ButtonElement bg="purple.dark" _hover={{ bg: "purple.light" }}>
+            Save Changes
+          </ButtonElement>
+        </HStack>
+      </FormControl>
+    </Box>
   );
 }

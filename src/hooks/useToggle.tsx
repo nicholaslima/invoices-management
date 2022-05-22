@@ -1,12 +1,14 @@
-import React, { FunctionComponent, ReactNode, useMemo, useState } from "react";
+import React, {
+  FunctionComponent,
+  ReactNode,
+  useCallback,
+  useMemo,
+  useState,
+} from "react";
 import { useContext, createContext } from "react";
 
 interface ToogleTypes {
   stateToggle: boolean;
-  HandlersToggle: HandlersType;
-}
-
-interface HandlersType {
   on(): void;
   off(): void;
   toggle(): void;
@@ -19,25 +21,22 @@ interface Props {
 }
 
 const UseToogleProvider: React.FC<Props> = ({ children }) => {
-  const [stateToggle, setStateToggle] = useState(false);
+  const [stateToggle, setStateToggle] = useState(true);
 
-  const HandlersToggle = useMemo(
-    () => ({
-      on: () => {
-        setStateToggle(true);
-      },
-      off: () => {
-        setStateToggle(false);
-      },
-      toggle: () => {
-        setStateToggle(!stateToggle);
-      },
-    }),
-    [stateToggle, setStateToggle]
-  );
+  const off = useCallback(() => {
+    setStateToggle(true);
+  }, [setStateToggle]);
+
+  const on = useCallback(() => {
+    setStateToggle(false);
+  }, [setStateToggle]);
+
+  const toggle = useCallback(() => {
+    setStateToggle(!stateToggle);
+  }, [stateToggle]);
 
   return (
-    <UseToogleContext.Provider value={{ stateToggle, HandlersToggle }}>
+    <UseToogleContext.Provider value={{ stateToggle, on, off, toggle }}>
       {children}
     </UseToogleContext.Provider>
   );

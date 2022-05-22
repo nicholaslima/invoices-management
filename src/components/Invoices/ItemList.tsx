@@ -52,7 +52,7 @@ export function ItemList({ status, data }: ItemlistProps) {
       color,
     };
   }, []);
-  console.log(mdScreen);
+
   return (
     <Flex
       justify="space-between"

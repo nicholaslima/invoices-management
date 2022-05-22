@@ -17,7 +17,7 @@ import { useToggle } from "../../hooks/useToggle";
 export function Header() {
   const [buttonTitle, setButtonTitle] = useState("");
   const [title, setTitle] = useState("");
-  const { HandlersToggle } = useToggle();
+  const { toggle } = useToggle();
 
   const isWideVersion = useBreakpointValue({
     base: false,
@@ -64,7 +64,7 @@ export function Header() {
           mr="2"
           bg="purple.dark"
           leftIcon={<AiFillPlusCircle size={40} />}
-          onClick={() => HandlersToggle.toggle()}
+          onClick={() => toggle()}
         >
           {buttonTitle}
         </ButtonElement>

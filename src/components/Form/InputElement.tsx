@@ -10,13 +10,14 @@ export function InputElement({ id, type }: InputProps) {
     <Input
       id={id}
       type={type}
-      fontWeight="bold"
+      fontWeight="700"
       borderColor="ebony"
+      p="0 0.5rem"
       bg="mirage"
       color="white"
-      fontSize="16"
-      borderWidth="2px"
-      h="3rem"
+      fontSize={["8", "16"]}
+      borderWidth="1px"
+      h={["2rem", "3rem"]}
       borderRadius="0.25rem"
     />
   );

@@ -6,7 +6,13 @@ interface SelectElementProps extends SelectProps {
 
 export function SelectElement({ options, ...rest }: SelectElementProps) {
   return (
-    <Select color="white" fontWeight="bold" iconColor="purple.dark" {...rest}>
+    <Select
+      color="white"
+      fontWeight="bold"
+      h={["2rem", "3rem"]}
+      iconColor="purple.dark"
+      {...rest}
+    >
       {options.map((option, key) => (
         <option
           key={key}

@@ -11,9 +11,10 @@ export function ListItens() {
             p="0"
             border="0"
             textTransform="capitalize"
-            fontSize="0.75rem"
-            color="gray"
-            fontWeight="600"
+            fontSize={["0.5rem", "0.75rem"]}
+            color="white"
+            fontWeight={["400", "600"]}
+            fontFamily="Spartan"
           >
             Item Name
           </Th>
@@ -21,9 +22,10 @@ export function ListItens() {
             p="0"
             border="0"
             textTransform="capitalize"
-            fontSize="0.75rem"
-            color="gray"
-            fontWeight="500"
+            fontSize={["0.5rem", "0.75rem"]}
+            color="white"
+            fontWeight={["400", "600"]}
+            fontFamily="Spartan"
           >
             Qtd
           </Th>
@@ -31,9 +33,10 @@ export function ListItens() {
             p="0"
             border="0"
             textTransform="capitalize"
-            fontSize="0.75rem"
-            color="gray"
-            fontWeight="500"
+            fontSize={["0.5rem", "0.75rem"]}
+            color="white"
+            fontWeight={["400", "600"]}
+            fontFamily="Spartan"
           >
             Price
           </Th>
@@ -41,9 +44,10 @@ export function ListItens() {
             p="0"
             border="0"
             textTransform="capitalize"
-            fontSize="0.75rem"
-            color="gray"
-            fontWeight="500"
+            fontSize={["0.5rem", "0.75rem"]}
+            color="white"
+            fontWeight={["400", "600"]}
+            fontFamily="Spartan"
           >
             Total
           </Th>

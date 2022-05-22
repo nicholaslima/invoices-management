@@ -1,9 +1,10 @@
 import type { NextPage } from "next";
-import { Avatar, Flex } from "@chakra-ui/react";
+import { Avatar, Box, Flex } from "@chakra-ui/react";
 
 import { Sidebar } from "../components/Sidebar";
 import { Invoices } from "../components/Invoices";
 import { NewInvoice } from "../pages/NewInvoice";
+import { useToggle } from "../hooks/useToggle";
 
 const Home: NextPage = () => {
   return (

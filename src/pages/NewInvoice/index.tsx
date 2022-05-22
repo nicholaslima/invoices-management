@@ -29,17 +29,22 @@ import { SelectElement } from "../../components/Form/SelectElement";
 import { ButtonElement } from "../../components/Button";
 import { ListItens } from "../../components/ListItens";
 
+import { useEffect, useState } from "react";
+import { useToggle } from "../../hooks/useToggle";
+
 export function NewInvoice() {
+  const { stateToggle } = useToggle();
   return (
     <Box
       w="100%"
       position="fixed"
-      left={["0px", "0px", "70", "70px"]}
-      top={["70px", "70", "0", "0"]}
+      left={stateToggle ? "-520px" : ["0", "0", "70px", "70px"]}
+      top={["40px", "70px", "0", "0"]}
       overflowY="scroll"
       zIndex="1"
+      transition="0.6s"
       h="100%"
-      maxW="500px"
+      maxW={["100%", "500px"]}
       mx="auto"
       p="1.5rem"
       bg="blue.800"

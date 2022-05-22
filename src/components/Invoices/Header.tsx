@@ -12,10 +12,12 @@ import { useEffect, useState } from "react";
 import { AiFillPlusCircle } from "react-icons/ai";
 import { ButtonElement } from "../Button";
 import { SelectStatusInvoices } from "./SelectStatusInvoices";
+import { useToggle } from "../../hooks/useToggle";
 
 export function Header() {
   const [buttonTitle, setButtonTitle] = useState("");
   const [title, setTitle] = useState("");
+  const { HandlersToggle } = useToggle();
 
   const isWideVersion = useBreakpointValue({
     base: false,
@@ -56,18 +58,16 @@ export function Header() {
 
       <Flex alignItems="center" gap="4">
         <SelectStatusInvoices />
-        <NextLink href="/NewInvoice" passHref>
-          <Link>
-            <ButtonElement
-              pl="2px"
-              mr="2"
-              bg="purple.dark"
-              leftIcon={<AiFillPlusCircle size={40} />}
-            >
-              {buttonTitle}
-            </ButtonElement>
-          </Link>
-        </NextLink>
+
+        <ButtonElement
+          pl="2px"
+          mr="2"
+          bg="purple.dark"
+          leftIcon={<AiFillPlusCircle size={40} />}
+          onClick={() => HandlersToggle.toggle()}
+        >
+          {buttonTitle}
+        </ButtonElement>
       </Flex>
     </Flex>
   );

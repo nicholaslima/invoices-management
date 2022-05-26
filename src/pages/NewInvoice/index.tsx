@@ -51,10 +51,11 @@ export function NewInvoice() {
     <Box
       w="100%"
       position="fixed"
-      left={stateToggle ? "-520px" : ["0", "0", "70px", "70px"]}
+      left={stateToggle ? "-660px" : ["0", "0", "70px", "70px"]}
       top={["40px", "70px", "0", "0"]}
+      visibility={stateToggle ? "hidden" : "visible"}
       overflowY="scroll"
-      zIndex="1"
+      zIndex="5"
       transition="0.6s"
       h="100%"
       maxW={["100%", "100%", "500px"]}
